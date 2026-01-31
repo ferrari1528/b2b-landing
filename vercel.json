@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/day2-followup",
+      "schedule": "0 10 * * *"
+    },
+    {
+      "path": "/api/cron/day4-reminder",
+      "schedule": "0 10 * * *"
+    }
+  ]
+}

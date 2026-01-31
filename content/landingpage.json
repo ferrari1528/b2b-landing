@@ -1,0 +1,167 @@
+{
+  "hero": {
+    "badge": "Exklusive B2B-Partnerschaft",
+    "headline": "Steigern Sie Ihren Umsatz mit 15 km/h & 25 km/h Elektrorollern",
+    "subheadline": "Die Alternative zum 6 km/h Krankenkassen-Standard – Exklusive Händlerkonditionen für Sanitätshäuser",
+    "ctaButton": "Jetzt Händler-Preisliste anfordern",
+    "benefits": [
+      "Hohe Margen",
+      "Gebietsschutz",
+      "Marketing-Support"
+    ],
+    "trustIndicators": "✓ Kostenlose Preisliste • ✓ Keine Verpflichtungen • ✓ DSGVO-konform",
+    "backgroundImage": "/images/hero-background.jpg"
+  },
+  "problem": {
+    "headline": "Das Problem: 6 km/h sind zu langsam",
+    "subheadline": "Ihre Kunden wollen mehr als Krankenkassen-Modelle – Sie verlieren Umsatz an die Konkurrenz",
+    "cards": [
+      {
+        "title": "Unzufriedene Kunden",
+        "description": "6 km/h Elektromobile sind zu langsam für den Alltag. Kunden wünschen sich mehr Geschwindigkeit und Reichweite für eine echte Mobilitätslösung."
+      },
+      {
+        "title": "Verlorene Verkäufe",
+        "description": "Kunden kaufen schnellere Alternativen bei der Konkurrenz oder online, weil Ihr Sortiment nur langsame Krankenkassen-Modelle umfasst."
+      },
+      {
+        "title": "Eingeschränkte Reichweite",
+        "description": "Kurze Akku-Laufzeiten und niedrige Geschwindigkeit schränken die Mobilität Ihrer Kunden ein und führen zu Unzufriedenheit."
+      }
+    ],
+    "callout": "Fakt: Über 60% der Kunden suchen nach Elektromobilen mit höherer Geschwindigkeit als Standard-Krankenkassenmodelle. Nutzen Sie dieses ungenutzte Potenzial!"
+  },
+  "solution": {
+    "headline": "Die Lösung: 15 km/h & 25 km/h Elektroroller",
+    "subheadline": "Bieten Sie Ihren Kunden moderne Elektromobilität – Mit attraktiven Händlermargen",
+    "products": [
+      {
+        "name": "15 km/h Elektroroller",
+        "badge": "Bestseller",
+        "description": "Führerscheinfrei ab 15 Jahren, StVZO-zugelassen",
+        "features": [
+          "Bis zu 15 km/h Höchstgeschwindigkeit",
+          "50-70 km Reichweite",
+          "Keine Helmpflicht",
+          "Sofort lieferbar"
+        ],
+        "specs": [
+          "Führerscheinfrei ab 15 Jahren",
+          "StVZO-zugelassen",
+          "Versicherungskennzeichen",
+          "Verschiedene Modelle verfügbar"
+        ],
+        "image": "/images/15kmh-roller.jpg"
+      },
+      {
+        "name": "25 km/h Elektroroller",
+        "badge": "Premium",
+        "description": "Kabinenroller mit Wetterschutz",
+        "features": [
+          "Bis zu 25 km/h Höchstgeschwindigkeit",
+          "80-100 km Reichweite",
+          "Wetterschutz-Kabine",
+          "Individuell konfigurierbar"
+        ],
+        "specs": [
+          "Führerscheinfrei für Geburtsdatum vor 30.04.1965",
+          "Mofa-Prüfbescheinigung sonst erforderlich",
+          "Vollverkleidung möglich",
+          "Premium-Ausstattung verfügbar"
+        ],
+        "image": "/images/25kmh-roller.jpg"
+      }
+    ],
+    "ctaBox": {
+      "headline": "Erweitern Sie Ihr Sortiment noch heute",
+      "text": "Fordern Sie jetzt die vollständige Händler-Preisliste mit allen Modellen, Konditionen und Margen an.",
+      "buttonText": "Jetzt Preisliste anfordern"
+    }
+  },
+  "benefits": {
+    "headline": "Ihre Vorteile als Vertriebspartner",
+    "subheadline": "Werden Sie Teil eines erfolgreichen Netzwerks und profitieren Sie von erstklassigen Konditionen",
+    "cards": [
+      {
+        "title": "Hohe Händlermargen",
+        "description": "Attraktive Einkaufspreise mit bis zu 40% Marge. Zusätzliche Umsätze durch Service, Ersatzteile und Zubehör."
+      },
+      {
+        "title": "Exklusive Gebietsrechte",
+        "description": "Sichern Sie sich den alleinigen Vertrieb in Ihrer Region. Kein Wettbewerb durch andere Händler in Ihrem Gebiet."
+      },
+      {
+        "title": "Marketing-Support",
+        "description": "Professionelle Verkaufsunterlagen, Flyer, Banner und Online-Marketing-Material kostenlos für Sie."
+      },
+      {
+        "title": "Schulungen & Demos",
+        "description": "Kostenlose Produktschulungen für Ihr Team (Online & vor Ort). Demo-Fahrzeuge zum Testen verfügbar."
+      },
+      {
+        "title": "Schnelle Lieferzeiten",
+        "description": "Lagerware ab Zentrallager Deutschland. Lieferung innerhalb von 3-5 Werktagen direkt zu Ihnen."
+      },
+      {
+        "title": "After-Sales Service",
+        "description": "Technischer Support per Telefon/E-Mail. Ersatzteile schnell verfügbar. Garantieabwicklung unkompliziert."
+      }
+    ],
+    "stats": [
+      {
+        "value": "40%",
+        "label": "Händlermarge"
+      },
+      {
+        "value": "200+",
+        "label": "Zufriedene Partner"
+      },
+      {
+        "value": "24/7",
+        "label": "Support"
+      },
+      {
+        "value": "48h",
+        "label": "Lieferzeit"
+      }
+    ]
+  },
+  "registration": {
+    "headline": "Jetzt Händler-Preisliste anfordern",
+    "subheadline": "Kostenlos und unverbindlich – Erhalten Sie sofort Zugang zu unseren exklusiven B2B-Konditionen",
+    "form": {
+      "fields": {
+        "name": "Ihr Name",
+        "firma": "Firma / Sanitätshaus",
+        "email": "E-Mail-Adresse",
+        "telefon": "Telefonnummer",
+        "sanitaetshaus": "Name des Sanitätshauses",
+        "stadt": "Stadt"
+      },
+      "dsgvoText": "Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.",
+      "submitButton": "Jetzt kostenlos Preisliste anfordern",
+      "trustIndicators": "✓ Kostenlos • ✓ Unverbindlich • ✓ DSGVO-konform"
+    },
+    "successMessage": {
+      "headline": "Vielen Dank für Ihre Anfrage!",
+      "text": "Ihre Händler-Preisliste wurde an Ihre E-Mail-Adresse gesendet. Bitte prüfen Sie auch Ihren Spam-Ordner.",
+      "subtext": "Wir werden uns in Kürze bei Ihnen melden."
+    }
+  },
+  "footer": {
+    "company": {
+      "name": "Elektroroller Futura",
+      "description": "Ihr Partner für moderne Elektromobilität. Exklusive B2B-Konditionen für Sanitätshäuser."
+    },
+    "contact": {
+      "phone": "+49 (0)123 456789",
+      "email": "kontakt@ihre-domain.de",
+      "hours": "Mo-Fr: 9:00 - 18:00 Uhr"
+    },
+    "copyright": "Elektroroller Futura GmbH. Alle Rechte vorbehalten."
+  },
+  "seo": {
+    "title": "B2B Vertriebspartner | Elektroroller Futura 15 & 25 km/h",
+    "description": "Werden Sie Vertriebspartner für 15 km/h & 25 km/h Elektroroller. Exklusive Händlerkonditionen für Sanitätshäuser. Jetzt Preisliste anfordern!"
+  }
+}
