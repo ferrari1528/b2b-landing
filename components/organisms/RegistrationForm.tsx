@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { leadRegistrationSchema, LeadRegistrationInput } from "@/lib/validations/schemas";
@@ -20,14 +20,38 @@ export function RegistrationForm() {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
+    watch,
   } = useForm<LeadRegistrationInput>({
     resolver: zodResolver(leadRegistrationSchema),
   });
 
+  // Watch sanitaetshaus field and auto-populate firma
+  const sanitaetshaus = watch("sanitaetshaus");
+
+  // Auto-sync firma with sanitaetshaus using useEffect to prevent infinite loop
+  useEffect(() => {
+    if (sanitaetshaus) {
+      setValue("firma", sanitaetshaus, { shouldValidate: false });
+    }
+  }, [sanitaetshaus, setValue]);
+
+  // Debug: Log validation errors
+  if (Object.keys(errors).length > 0) {
+    console.log("⚠️ Validation errors:", errors);
+    // Show which fields have errors
+    Object.keys(errors).forEach(key => {
+      console.log(`  ❌ ${key}:`, errors[key as keyof typeof errors]?.message);
+    });
+  }
+
   const onSubmit = async (data: LeadRegistrationInput) => {
+
+    console.log("🚀 Form submitted!", data);
     setIsSubmitting(true);
 
     try {
+      console.log("📤 Sending request to /api/leads...");
       const response = await fetch("/api/leads", {
         method: "POST",
         headers: {
@@ -37,12 +61,15 @@ export function RegistrationForm() {
       });
 
       const result = await response.json();
+      console.log("📥 Response received:", response.status, result);
 
       if (!response.ok) {
+        console.error("❌ Request failed:", result);
         throw new Error(result.error || "Ein Fehler ist aufgetreten");
       }
 
       // Success
+      console.log("✅ Form submission successful!");
       setIsSuccess(true);
       toast.success(result.data.message || "Preisliste erfolgreich angefordert!");
       reset();
@@ -79,29 +106,74 @@ export function RegistrationForm() {
   }
 
   return (
-    <section id="registration-form" className="py-20 bg-gray-50">
+    <section id="registration-form" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-4">
               Jetzt{" "}
-              <span className="text-brand-orange">Händler-Preisliste</span>{" "}
+              <span className="text-brand-orange">Händler-Preisliste & Infomaterial</span>{" "}
               anfordern
             </h2>
             <p className="text-lg text-gray-600">
               Kostenlos und unverbindlich – Erhalten Sie sofort Zugang zu unseren
-              exklusiven B2B-Konditionen
+              exklusiven B2B-Konditionen und Produktinformationen
             </p>
+          </div>
+
+          {/* Price Convincer Box */}
+          <div className="bg-gradient-to-br from-brand-orange/10 to-brand-red/10 border-l-4 border-brand-orange rounded-lg p-6 mb-8">
+            <div className="flex items-start gap-4">
+              <div className="text-4xl">💎</div>
+              <div>
+                <h3 className="text-xl font-bold text-brand-black mb-2">
+                  Attraktiv für Ihre Kunden, hochprofitabel für Sie
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-3">
+                  Unsere <strong>führerscheinfreien 25 km/h E-Mobile</strong> starten bereits bei einem Endkunden-UVP von nur <strong className="text-brand-orange text-xl">1.599 €</strong>.
+                  Profitieren Sie von einer <strong>überdurchschnittlich hohen Händlermarge</strong> und erschließen Sie sich eine neue, kaufkräftige Zielgruppe.
+                </p>
+                <p className="text-sm text-gray-600 italic">
+                  👉 Fordern Sie jetzt die vollständige Preisliste inkl. aller Margen-Details an.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Form */}
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {/* Name */}
+              {/* Sanitätshaus */}
+              <div>
+                <Label
+                  htmlFor="sanitaetshaus"
+                  className="text-brand-black font-medium"
+                >
+                  Firmenname{" "}
+                  <span className="text-brand-red">*</span>
+                </Label>
+                <Input
+                  id="sanitaetshaus"
+                  type="text"
+                  placeholder="Ihre Firma GmbH"
+                  {...register("sanitaetshaus")}
+                  className="mt-2"
+                />
+                {errors.sanitaetshaus && (
+                  <p className="text-sm text-brand-red mt-1">
+                    {errors.sanitaetshaus.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Hidden firma field - auto-populated from sanitaetshaus */}
+              <input type="hidden" {...register("firma")} />
+
+              {/* Ansprechpartner */}
               <div>
                 <Label htmlFor="name" className="text-brand-black font-medium">
-                  Ihr Name <span className="text-brand-red">*</span>
+                  Ansprechpartner <span className="text-brand-red">*</span>
                 </Label>
                 <Input
                   id="name"
@@ -117,24 +189,6 @@ export function RegistrationForm() {
                 )}
               </div>
 
-              {/* Firma */}
-              <div>
-                <Label htmlFor="firma" className="text-brand-black font-medium">
-                  Firma / Sanitätshaus <span className="text-brand-red">*</span>
-                </Label>
-                <Input
-                  id="firma"
-                  type="text"
-                  placeholder="Mustermann GmbH"
-                  {...register("firma")}
-                  className="mt-2"
-                />
-                {errors.firma && (
-                  <p className="text-sm text-brand-red mt-1">
-                    {errors.firma.message}
-                  </p>
-                )}
-              </div>
 
               {/* Email */}
               <div>
@@ -170,29 +224,6 @@ export function RegistrationForm() {
                 {errors.telefon && (
                   <p className="text-sm text-brand-red mt-1">
                     {errors.telefon.message}
-                  </p>
-                )}
-              </div>
-
-              {/* Sanitätshaus */}
-              <div>
-                <Label
-                  htmlFor="sanitaetshaus"
-                  className="text-brand-black font-medium"
-                >
-                  Name des Sanitätshauses{" "}
-                  <span className="text-brand-red">*</span>
-                </Label>
-                <Input
-                  id="sanitaetshaus"
-                  type="text"
-                  placeholder="Sanitätshaus Mustermann"
-                  {...register("sanitaetshaus")}
-                  className="mt-2"
-                />
-                {errors.sanitaetshaus && (
-                  <p className="text-sm text-brand-red mt-1">
-                    {errors.sanitaetshaus.message}
                   </p>
                 )}
               </div>
@@ -258,6 +289,7 @@ export function RegistrationForm() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
+                onClick={() => console.log("🔘 Button clicked!")}
                 className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white py-6 text-lg font-semibold"
               >
                 {isSubmitting ? (
@@ -266,7 +298,7 @@ export function RegistrationForm() {
                     Wird gesendet...
                   </span>
                 ) : (
-                  "Jetzt kostenlos Preisliste anfordern"
+                  "Jetzt Händler-Preisliste & Infomaterial anfordern"
                 )}
               </Button>
 

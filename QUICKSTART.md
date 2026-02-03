@@ -26,7 +26,7 @@ Um das Formular zum Laufen zu bringen, brauchst du:
 ### Minimales Setup (10 Min):
 1. ✅ `.env.local` Datei mit API Keys ausfüllen (siehe SETUP.md TEIL 3)
 2. ✅ Google Sheets einrichten (siehe SETUP.md TEIL 1)
-3. ✅ DeepSeek + Resend API Keys (siehe SETUP.md TEIL 2)
+3. ✅ DeepSeek API Key + Gmail App-Passwort (siehe SETUP.md TEIL 2)
 
 ### Vollständiges Setup:
 📖 Siehe **SETUP.md** für die komplette Schritt-für-Schritt-Anleitung

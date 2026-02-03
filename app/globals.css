@@ -50,12 +50,14 @@
   --radius: 0.625rem;
 
   /* Brand Colors - Elektroroller Futura */
-  --brand-black: #0A0A0A;
-  --brand-white: #FAFAFA;
-  --brand-red: #E63946;
-  --brand-orange: #F77F00;
-  --brand-gray-100: #F5F5F5;
-  --brand-gray-800: #262626;
+  --brand-black: #1a1a1a;
+  --brand-white: #FFFFFF;
+  --brand-red: #FF5722;
+  --brand-orange: #FF6B35;
+  --brand-gray-100: #F9F9F9;
+  --brand-gray-200: #E5E5E5;
+  --brand-gray-800: #2a2a2a;
+  --brand-text-dark: #333333;
 
   /* Tailwind Theme Colors */
   --background: oklch(1 0 0);

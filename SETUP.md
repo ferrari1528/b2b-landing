@@ -10,8 +10,9 @@ Diese Anleitung führt dich Schritt für Schritt durch das komplette Setup der B
 
 - ✅ Node.js 18+ installiert
 - ✅ Google Account (für Google Sheets)
+- ✅ Gmail Account mit 2FA (für E-Mail Versand)
 - ✅ 2chat Account (bereits vorhanden)
-- ✅ Kreditkarte für API-Dienste (DeepSeek, Resend)
+- ✅ Kreditkarte für DeepSeek API
 
 ---
 
@@ -134,29 +135,34 @@ Diese Anleitung führt dich Schritt für Schritt durch das komplette Setup der B
    - ⚠️ Wird nur EINMAL angezeigt!
 7. **Guthaben**: "Billing" → Mindestens 5-10€ aufladen
 
-## 2.2 Resend (E-Mail Service)
+## 2.2 Gmail SMTP (E-Mail Service)
 
-1. **Öffne**: [resend.com](https://resend.com/)
-2. **Registriere** dich
-3. **E-Mail verifizieren**
+Wir nutzen deine bestehende Gmail-Adresse (`haendler@e-scooter-futura.de`) für den E-Mail Versand.
 
-### Option A: Mit eigener Domain (Empfohlen für Production)
-1. **Dashboard**: "Domains" → "Add Domain"
-2. **Domain**: `deine-domain.de` eingeben
-3. **DNS-Einträge**: Bei deinem Domain-Provider eintragen:
-   - TXT Record
-   - MX Records
-   - DKIM Records
-4. **Warten**: Bis Verifizierung abgeschlossen (ca. 5-10 Min)
-5. **API Key**: "API Keys" → "Create API Key"
-   - Name: `Elektroroller Production`
-   - Permission: "Full Access"
-6. **Kopiere**: API Key (beginnt mit `re_...`)
+### Schritt 1: 2-Faktor-Authentifizierung aktivieren
 
-### Option B: Für Testing (schnell, aber nur 100 E-Mails/Tag)
-1. **API Key**: Erstellen wie oben
-2. **From-Email**: `onboarding@resend.dev` verwenden
-3. **Later**: Eigene Domain hinzufügen
+1. **Öffne**: [myaccount.google.com](https://myaccount.google.com/)
+2. **Logge ein**: Mit `haendler@e-scooter-futura.de`
+3. **Menü**: "Sicherheit" (links)
+4. **Suche**: "Bestätigung in zwei Schritten"
+5. **Falls nicht aktiv**:
+   - Klicke "Bestätigung in zwei Schritten"
+   - Folge den Anweisungen (Telefonnummer bestätigen)
+
+### Schritt 2: App-Passwort erstellen
+
+1. **Bleibe auf**: "Sicherheit"-Seite
+2. **Scrolle** zu "Bestätigung in zwei Schritten"
+3. **Ganz unten**: Klicke "App-Passwörter"
+   - Falls nicht sichtbar: 2FA muss aktiv sein (Schritt 1)
+4. **App-Name**: `B2B Elektroroller Website`
+5. **Klicke**: "Erstellen"
+6. **Kopiere**: Das 16-stellige Passwort
+   - Format: `xxxx xxxx xxxx xxxx` (mit Leerzeichen)
+   - ⚠️ Wird nur EINMAL angezeigt!
+7. **Speichere**: Das Passwort sicher (kommt in `.env.local`)
+
+**Hinweis**: App-Passwörter umgehen 2FA - daher sicher aufbewahren!
 
 ## 2.3 2chat (WhatsApp)
 
@@ -201,9 +207,9 @@ GOOGLE_SHEETS_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nKOPIERE_HIER_DEN_PRIVATE
 DEEPSEEK_API_KEY=sk-DEIN_DEEPSEEK_API_KEY
 DEEPSEEK_MODEL=deepseek-chat
 
-# Resend Email Service
-RESEND_API_KEY=re_DEIN_RESEND_API_KEY
-RESEND_FROM_EMAIL=onboarding@resend.dev
+# Gmail SMTP Email Service
+GMAIL_FROM_EMAIL=haendler@e-scooter-futura.de
+GMAIL_APP_PASSWORD=DEIN_16_STELLIGES_APP_PASSWORT
 
 # WhatsApp (2chat)
 TWOCHAT_API_KEY=DEIN_2CHAT_API_KEY
@@ -446,7 +452,7 @@ Value: [PRIVATE_KEY_MIT_\n]
 
 ## API Keys
 - [ ] DeepSeek Key + Guthaben
-- [ ] Resend Key (+ Domain verifiziert)
+- [ ] Gmail 2FA aktiviert + App-Passwort
 - [ ] 2chat Key + Channel ID
 
 ## Lokal
@@ -478,9 +484,11 @@ Value: [PRIVATE_KEY_MIT_\n]
 - Guthaben vorhanden?
 - API Key korrekt?
 
-## "Resend error"
-- Domain verifiziert?
-- Für Tests: `onboarding@resend.dev` verwenden
+## "Gmail E-Mail Versand funktioniert nicht"
+- 2FA bei Google Account aktiviert?
+- App-Passwort korrekt erstellt?
+- App-Passwort ohne Leerzeichen in .env.local?
+- GMAIL_FROM_EMAIL ist die richtige Adresse?
 
 ## "WhatsApp nicht gesendet"
 - Kein Error = normal, WhatsApp ist optional

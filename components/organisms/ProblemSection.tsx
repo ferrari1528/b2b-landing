@@ -1,40 +1,40 @@
-import { AlertCircle, TrendingDown, MapPin } from "lucide-react";
+import { AlertCircle, TrendingDown, ShoppingCart } from "lucide-react";
 
 const problems = [
   {
     icon: AlertCircle,
     title: "Unzufriedene Kunden",
     description:
-      "6 km/h Elektromobile sind zu langsam für den Alltag. Kunden wünschen sich mehr Geschwindigkeit und Reichweite für eine echte Mobilitätslösung.",
+      "6 km/h ist für aktive Senioren zu langsam. Sie fühlen sich ausgebremst und wünschen sich die Freiheit, eigenständig Besorgungen zu erledigen und am Leben teilzunehmen.",
   },
   {
     icon: TrendingDown,
-    title: "Verlorene Verkäufe",
+    title: "Umsatzverlust an Online-Handel",
     description:
-      "Kunden kaufen schnellere Alternativen bei der Konkurrenz oder online, weil Ihr Sortiment nur langsame Krankenkassen-Modelle umfasst.",
+      "Der wachsende Selbstzahler-Markt (15-45 km/h) geht komplett am Sanitätshaus vorbei. Ihre Kunden bestellen online – und Sie verlieren lukrative Margen.",
   },
   {
-    icon: MapPin,
-    title: "Eingeschränkte Reichweite",
+    icon: ShoppingCart,
+    title: "Abhängigkeit von Krankenkassen",
     description:
-      "Kurze Akku-Laufzeiten und niedrige Geschwindigkeit schränken die Mobilität Ihrer Kunden ein und führen zu Unzufriedenheit.",
+      "Krankenkassen-Modelle bringen niedrige Margen und viel Verwaltungsaufwand. Der Selbstzahler-Markt bietet deutlich höhere Gewinnspannen bei weniger Bürokratie.",
   },
 ];
 
 export function ProblemSection() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-4">
-              Das Problem:{" "}
-              <span className="text-brand-red">6 km/h sind zu langsam</span>
+              Die{" "}
+              <span className="text-brand-red">6 km/h Falle</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ihre Kunden wollen mehr als Krankenkassen-Modelle – Sie verlieren Umsatz
-              an die Konkurrenz
+              Während Sie auf Krankenkassen-Modelle setzen, verlieren Sie täglich Umsatz
+              an den Online-Handel und die Konkurrenz
             </p>
           </div>
 
@@ -63,10 +63,8 @@ export function ProblemSection() {
           {/* Call-out box */}
           <div className="mt-12 bg-white border-l-4 border-brand-orange p-6 rounded-lg shadow-md">
             <p className="text-lg text-gray-700">
-              <span className="font-bold text-brand-orange">Fakt:</span> Über 60%
-              der Kunden suchen nach Elektromobilen mit{" "}
-              <span className="font-semibold">höherer Geschwindigkeit</span> als
-              Standard-Krankenkassenmodelle. Nutzen Sie dieses ungenutzte Potenzial!
+              <span className="font-bold text-brand-orange">Marktchance:</span> Der Selbstzahler-Markt für schnellere Elektromobile (15-45 km/h) wächst jährlich um über{" "}
+              <span className="font-semibold">30%</span>. Sanitätshäuser, die diesen Trend verpassen, verlieren täglich lukrative Verkäufe an Amazon, eBay und spezialisierte Online-Shops.
             </p>
           </div>
         </div>

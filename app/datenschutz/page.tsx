@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung | Elektroroller Futura B2B",
-  description: "Datenschutzerklärung der Elektroroller Futura GmbH",
+  description: "Datenschutzerklärung der Dr. Ferrari GmbH",
 };
 
 export default function DatenschutzPage() {
@@ -21,6 +21,24 @@ export default function DatenschutzPage() {
           Datenschutzerklärung
         </h1>
 
+        <div className="mb-8 p-6 bg-brand-orange/10 border-l-4 border-brand-orange rounded-lg">
+          <p className="text-lg font-semibold text-brand-black mb-2">
+            Vollständige Datenschutzerklärung
+          </p>
+          <p className="text-gray-700 mb-3">
+            Die vollständige und aktuelle Datenschutzerklärung finden Sie auf unserer Hauptwebsite:
+          </p>
+          <a
+            href="https://elektroroller-futura.de/info/datenschutzerklaerung"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-brand-orange hover:text-brand-red font-semibold underline"
+          >
+            https://elektroroller-futura.de/info/datenschutzerklaerung
+            <span className="ml-2">→</span>
+          </a>
+        </div>
+
         <div className="prose prose-lg max-w-none space-y-6 text-gray-700">
           <section>
             <h2 className="text-2xl font-bold text-brand-black mt-8 mb-4">
@@ -30,13 +48,13 @@ export default function DatenschutzPage() {
               Verantwortlich für die Datenverarbeitung auf dieser Website ist:
             </p>
             <p className="font-medium">
-              Elektroroller Futura GmbH<br />
-              Musterstraße 123<br />
-              12345 Musterstadt<br />
+              Dr. Ferrari GmbH<br />
+              Industriestraße 1<br />
+              56283 Halsenbach<br />
               Deutschland<br />
               <br />
-              E-Mail: datenschutz@ihre-domain.de<br />
-              Telefon: +49 (0)123 456789
+              E-Mail: elektroroller-futura@DrFerrariGmbH.de<br />
+              Telefon: +49 6747 950060
             </p>
           </section>
 
@@ -53,7 +71,6 @@ export default function DatenschutzPage() {
               <li>Firmenname</li>
               <li>E-Mail-Adresse</li>
               <li>Telefonnummer</li>
-              <li>Name des Sanitätshauses</li>
               <li>Stadt</li>
               <li>Zeitstempel der Anfrage</li>
             </ul>
@@ -157,10 +174,10 @@ export default function DatenschutzPage() {
             <p className="mt-4">
               Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:{" "}
               <a
-                href="mailto:datenschutz@ihre-domain.de"
+                href="mailto:elektroroller-futura@DrFerrariGmbH.de"
                 className="text-brand-orange hover:underline"
               >
-                datenschutz@ihre-domain.de
+                elektroroller-futura@DrFerrariGmbH.de
               </a>
             </p>
           </section>

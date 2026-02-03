@@ -1,19 +1,25 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { Lead } from "@/types";
 import { withRetry } from "@/lib/utils/retry";
 import * as fs from "fs";
 import * as path from "path";
 
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || "kontakt@ihre-domain.de";
+const FROM_EMAIL = process.env.GMAIL_FROM_EMAIL || "haendler@e-scooter-futura.de";
 
-// Lazy initialization of Resend client
-let resend: Resend | null = null;
+// Lazy initialization of Gmail SMTP client
+let transporter: nodemailer.Transporter | null = null;
 
-function getResendClient(): Resend {
-  if (!resend) {
-    resend = new Resend(process.env.RESEND_API_KEY || "dummy-key-for-build");
+function getGmailClient(): nodemailer.Transporter {
+  if (!transporter) {
+    transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_FROM_EMAIL,
+        pass: process.env.GMAIL_APP_PASSWORD,
+      },
+    });
   }
-  return resend;
+  return transporter;
 }
 
 /**
@@ -29,32 +35,45 @@ export async function sendPricelistEmail(lead: Lead): Promise<void> {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background-color: #0A0A0A; color: #FAFAFA; padding: 30px; text-align: center; }
-    .header h1 { margin: 0; font-size: 24px; }
-    .content { background-color: #FFFFFF; padding: 30px; }
-    .content h2 { color: #F77F00; margin-top: 0; }
+    body { font-family: Arial, sans-serif; line-height: 1.8; color: #333; }
+    .container { max-width: 650px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
+    .header { background-color: #F77F00; color: #FFFFFF; padding: 40px 30px; text-align: center; border-radius: 8px 8px 0 0; }
+    .header h1 { margin: 0; font-size: 26px; font-weight: bold; }
+    .content { background-color: #FFFFFF; padding: 40px 35px; border-radius: 0 0 8px 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    .content h2 { color: #F77F00; margin-top: 0; font-size: 22px; }
+    .content p { margin-bottom: 16px; }
+    .highlight-box {
+      background-color: #FFF4E6;
+      border-left: 4px solid #F77F00;
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 4px;
+    }
     .cta-button {
       display: inline-block;
       background-color: #F77F00;
-      color: #FFFFFF;
-      padding: 12px 30px;
+      color: #FFFFFF !important;
+      padding: 14px 35px;
       text-decoration: none;
-      border-radius: 5px;
-      margin: 20px 0;
+      border-radius: 6px;
+      margin: 25px 0;
       font-weight: bold;
+      font-size: 16px;
+      box-shadow: 0 3px 8px rgba(247,127,0,0.3);
     }
-    .footer { background-color: #F5F5F5; padding: 20px; text-align: center; font-size: 12px; color: #666; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 10px; }
+    .cta-button:hover { background-color: #E63946; }
+    .footer { background-color: #0A0A0A; color: #FAFAFA; padding: 30px; text-align: center; font-size: 13px; border-radius: 8px; margin-top: 20px; }
+    .footer a { color: #F77F00; text-decoration: none; }
+    ul { padding-left: 25px; margin: 20px 0; }
+    li { margin-bottom: 12px; line-height: 1.6; }
+    strong { color: #0A0A0A; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1>🛴 Elektroroller Futura</h1>
-      <p>Ihre Händler-Preisliste</p>
+      <h1>⚡ Elektroroller Futura</h1>
+      <p style="margin: 10px 0 0 0; font-size: 16px;">Ihre Partnerschaft für moderne E-Mobilität</p>
     </div>
 
     <div class="content">
@@ -62,47 +81,57 @@ export async function sendPricelistEmail(lead: Lead): Promise<void> {
 
       <p>vielen Dank für Ihr Interesse an einer Partnerschaft mit Elektroroller Futura!</p>
 
-      <p>Im Anhang finden Sie unsere <strong>exklusive Händler-Preisliste</strong> mit allen Konditionen für:</p>
+      <p>Wir wissen, dass der Markt für klassische Krankenfahrstühle (6 km/h) oft mit hohem Beratungsaufwand und komplizierten Kassenabrechnungen verbunden ist. Mit unseren Modellen bieten wir Ihrem Sanitätshaus eine attraktive Alternative für das Selbstzahler-Geschäft: <strong>moderne E-Mobilität mit bis zu 25 km/h</strong>, die Lifestyle und Freiheit statt "Reha-Optik" vermittelt.</p>
 
+      <div class="highlight-box">
+        <p style="margin: 0;"><strong>📎 Im Anhang finden Sie:</strong></p>
+        <ul style="margin: 10px 0 0 0;">
+          <li><strong>Ihre exklusive Händler-Preisliste</strong></li>
+          <li>Technische Datenblätter für 15 km/h & 25 km/h Elektroroller</li>
+          <li>Informationen zu Kabinenrollern – wetterunabhängige Mobilität</li>
+          <li>Attraktive Händlermargen ohne Krankenkassen-Bürokratie</li>
+        </ul>
+      </div>
+
+      <p><strong>Ihre Vorteile als spezialisierter Fachhandelspartner:</strong></p>
       <ul>
-        <li>15 km/h Elektroroller (führerscheinfrei ab 15 Jahren)</li>
-        <li>25 km/h Elektroroller & Kabinenroller</li>
-        <li>Ersatzteile und Zubehör</li>
-        <li>Ihre Händlermargen</li>
+        <li><strong>Starke Margen:</strong> Profitieren Sie von attraktiven Konditionen für Selbstzahler-Produkte.</li>
+        <li><strong>Kein Abrechnungsstress:</strong> Direkter Verkauf ohne langwierige Kassen-Genehmigungen.</li>
+        <li><strong>Exklusivität:</strong> Wir schützen Ihr Verkaufsgebiet in <strong>${lead.stadt}</strong>, um fairen Wettbewerb zu garantieren.</li>
+        <li><strong>Full-Service-Support:</strong> Marketingmaterialien (Flyer, Banner) und technischer Support für Ihre Werkstatt sind inklusive.</li>
+        <li><strong>Kurze Lieferzeiten:</strong> Unsere Roller sind ab Lager verfügbar, damit Sie direkt verkaufsfähig sind.</li>
       </ul>
 
-      <p><strong>Ihre Vorteile als Vertriebspartner:</strong></p>
-      <ul>
-        <li>Exklusive Gebietsrechte für ${lead.stadt}</li>
-        <li>Attraktive Händlermargen</li>
-        <li>Kostenlose Schulungen & Demos</li>
-        <li>Marketing-Support (Flyer, Banner, Online-Material)</li>
-        <li>Schnelle Lieferzeiten ab Lager</li>
-        <li>Persönlicher Ansprechpartner</li>
-      </ul>
+      <p>Haben Sie Fragen zur Integration der Roller in Ihr Sortiment oder möchten Sie ein Test-Modell für Ihren Showroom anfordern?</p>
 
-      <p>Haben Sie Fragen zu den Konditionen oder möchten Sie ein unverbindliches Beratungsgespräch vereinbaren?</p>
+      <center>
+        <a href="https://calendly.com/elektroroller-futura/" class="cta-button">🗓️ Jetzt Beratungstermin vereinbaren</a>
+      </center>
 
-      <a href="https://calendly.com/ihr-kalender" class="cta-button">Jetzt Beratungstermin buchen</a>
+      <p style="text-align: center; margin-top: 20px;">Oder rufen Sie mich bei Fragen direkt persönlich an:<br>
+      <strong style="font-size: 18px; color: #F77F00;">+49 6747 950060</strong></p>
 
-      <p>Oder rufen Sie uns direkt an: <strong>+49 (0)123 456789</strong></p>
+      <p style="margin-top: 30px;">Wir freuen uns darauf, gemeinsam mit Ihnen die Mobilität Ihrer Kunden auf das nächste Level zu heben!</p>
 
-      <p>Wir freuen uns auf die Zusammenarbeit!</p>
-
-      <p>
-        Mit freundlichen Grüßen<br>
-        <strong>Ihr Team von Elektroroller Futura</strong>
+      <p style="margin-top: 30px; line-height: 1.8;">
+        <strong>Beste Grüße</strong><br><br>
+        <strong>Patrick Ueberberg</strong><br>
+        <span style="color: #666;">Ihr Händlerfachberater</span><br><br>
+        <strong style="color: #F77F00;">Elektroroller Futura</strong>
       </p>
     </div>
 
     <div class="footer">
-      <p>Elektroroller Futura GmbH<br>
-      Musterstraße 123, 12345 Musterstadt<br>
-      Tel: +49 (0)123 456789 | E-Mail: ${FROM_EMAIL}</p>
-
-      <p style="margin-top: 20px;">
-        <a href="https://ihre-domain.de/datenschutz" style="color: #666; text-decoration: none;">Datenschutz</a> |
-        <a href="https://ihre-domain.de/impressum" style="color: #666; text-decoration: none;">Impressum</a>
+      <p style="margin: 0 0 10px 0; font-size: 15px; font-weight: bold;">Elektroroller Futura – eine Marke der Dr. Ferrari GmbH</p>
+      <p style="margin: 8px 0; font-size: 13px;">Industriestraße 1 | 56283 Halsenbach, Deutschland</p>
+      <p style="margin: 15px 0; font-size: 13px; line-height: 1.8;">
+        📞 Telefon: +49 6747 950060<br>
+        📧 E-Mail: <a href="mailto:haendler@e-scooter-futura.de" style="color: #F77F00;">haendler@e-scooter-futura.de</a><br>
+        📱 WhatsApp: +49 1796636918
+      </p>
+      <p style="margin-top: 20px; font-size: 11px;">
+        <a href="https://elektroroller-futura.de/info/datenschutzerklaerung" style="color: #F77F00;">Datenschutz</a> |
+        <a href="http://localhost:3002/impressum" style="color: #F77F00;">Impressum</a>
       </p>
     </div>
   </div>
@@ -110,26 +139,25 @@ export async function sendPricelistEmail(lead: Lead): Promise<void> {
 </html>
   `;
 
-  const client = getResendClient();
+  const client = getGmailClient();
 
   await withRetry(
     async () => {
       // Check if PDF exists, if not, skip attachment
       let attachments = undefined;
       if (fs.existsSync(pdfPath)) {
-        const pdfBuffer = fs.readFileSync(pdfPath);
         attachments = [
           {
             filename: "Haendler-Preisliste-Elektroroller-Futura.pdf",
-            content: pdfBuffer,
+            path: pdfPath,
           },
         ];
       }
 
-      await client.emails.send({
+      await client.sendMail({
         from: FROM_EMAIL,
         to: lead.email,
-        subject: "Ihre Händler-Preisliste für Elektroroller Futura 🛴",
+        subject: "Unterlagen: Ihre Partnerschaft mit Futura & neue Umsatzchancen für Ihr Sanitätshaus",
         html,
         attachments,
       });
@@ -202,10 +230,10 @@ export async function sendDay2FollowupEmail(
 </html>
   `;
 
-  const client = getResendClient();
+  const client = getGmailClient();
 
   await withRetry(async () => {
-    await client.emails.send({
+    await client.sendMail({
       from: FROM_EMAIL,
       to: lead.email,
       subject: "Haben Sie noch Fragen zur Händler-Partnerschaft? 🤔",
@@ -296,10 +324,10 @@ export async function sendDay4ReminderEmail(lead: Lead): Promise<void> {
 </html>
   `;
 
-  const client = getResendClient();
+  const client = getGmailClient();
 
   await withRetry(async () => {
-    await client.emails.send({
+    await client.sendMail({
       from: FROM_EMAIL,
       to: lead.email,
       subject: `⏰ ${lead.name}, sichern Sie sich exklusive Gebietsrechte für ${lead.stadt}`,

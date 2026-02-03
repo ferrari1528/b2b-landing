@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Impressum | Elektroroller Futura B2B",
-  description: "Impressum der Elektroroller Futura GmbH",
+  description: "Impressum der Dr. Ferrari GmbH",
 };
 
 export default function ImpressumPage() {
@@ -25,9 +25,9 @@ export default function ImpressumPage() {
               Angaben gemäß § 5 TMG
             </h2>
             <p className="font-medium">
-              Elektroroller Futura GmbH<br />
-              Musterstraße 123<br />
-              12345 Musterstadt<br />
+              Dr. Ferrari GmbH<br />
+              Industriestraße 1<br />
+              56283 Halsenbach<br />
               Deutschland
             </p>
           </section>
@@ -36,19 +36,19 @@ export default function ImpressumPage() {
             <h2 className="text-2xl font-bold text-brand-black mt-8 mb-4">
               Vertreten durch
             </h2>
-            <p>Geschäftsführer: Max Mustermann</p>
+            <p>Geschäftsführer: Luca Ferrari</p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-brand-black mt-8 mb-4">Kontakt</h2>
             <p>
-              Telefon: +49 (0)123 456789<br />
+              Telefon: +49 6747 950060<br />
               E-Mail:{" "}
               <a
-                href="mailto:kontakt@ihre-domain.de"
+                href="mailto:elektroroller-futura@DrFerrariGmbH.de"
                 className="text-brand-orange hover:underline"
               >
-                kontakt@ihre-domain.de
+                elektroroller-futura@DrFerrariGmbH.de
               </a>
             </p>
           </section>
@@ -59,8 +59,9 @@ export default function ImpressumPage() {
             </h2>
             <p>
               Eintragung im Handelsregister<br />
-              Registergericht: Amtsgericht Musterstadt<br />
-              Registernummer: HRB 12345
+              Sitz: Emmelshausen<br />
+              Registergericht: Amtsgericht Koblenz<br />
+              Registernummer: HRB 3545
             </p>
           </section>
 
@@ -71,7 +72,7 @@ export default function ImpressumPage() {
             <p>
               Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:
               <br />
-              DE123456789
+              DE148756276
             </p>
           </section>
 
@@ -80,9 +81,9 @@ export default function ImpressumPage() {
               Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
             </h2>
             <p>
-              Max Mustermann<br />
-              Musterstraße 123<br />
-              12345 Musterstadt
+              Luca Ferrari<br />
+              Industriestraße 1<br />
+              56283 Halsenbach
             </p>
           </section>
 
@@ -111,9 +112,9 @@ export default function ImpressumPage() {
               Verbraucherstreitbeilegung / Universalschlichtungsstelle
             </h2>
             <p>
-              Wir sind nicht bereit oder verpflichtet, an
-              Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
-              teilzunehmen.
+              Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer
+              Verbraucherschlichtungsstelle (nach VSBG) nicht verpflichtet und
+              grundsätzlich nicht bereit.
             </p>
           </section>
 

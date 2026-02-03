@@ -14,7 +14,7 @@ Hochkonvertierende B2B-Landingpage zur Gewinnung von Sanitätshäusern als Vertr
 ## Tech Stack
 
 - **Frontend:** Next.js 14+ (App Router), Tailwind CSS, shadcn/ui
-- **Backend:** Google Sheets API, Resend, DeepSeek, 2chat
+- **Backend:** Google Sheets API, Gmail SMTP (nodemailer), DeepSeek, 2chat
 - **Deployment:** Vercel (mit Cron Jobs)
 
 ## Setup
@@ -73,7 +73,7 @@ cp .env.example .env.local
 Benötigte API Keys:
 - **Google Sheets:** Service Account Credentials
 - **DeepSeek:** [platform.deepseek.com](https://platform.deepseek.com/)
-- **Resend:** [resend.com](https://resend.com/)
+- **Gmail:** App-Passwort (über [myaccount.google.com](https://myaccount.google.com/))
 - **2chat:** [2chat.io](https://www.2chat.io/) (optional für WhatsApp)
 
 ### 4. Development
@@ -158,7 +158,7 @@ components/
 └── ui/               # shadcn/ui Components
 
 lib/
-├── services/         # Google Sheets, DeepSeek, Resend, WhatsApp
+├── services/         # Google Sheets, DeepSeek, Gmail (nodemailer), WhatsApp
 ├── validations/      # Zod Schemas
 └── utils/            # Retry, Formatters
 
@@ -186,10 +186,10 @@ types/                # TypeScript Typen
 ## Kosten (monatlich)
 
 - Vercel Pro: ~20€
-- Resend (50k E-Mails): ~20€
+- Gmail SMTP: 0€ (kostenlos, max ~500 E-Mails/Tag)
 - DeepSeek API: ~5-10€
 - 2chat WhatsApp: ~10-20€
-- **Gesamt: 55-70€/Monat**
+- **Gesamt: 35-50€/Monat**
 
 ## Support
 

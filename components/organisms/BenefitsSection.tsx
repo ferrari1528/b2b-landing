@@ -2,7 +2,7 @@ import {
   Euro,
   MapPin,
   Megaphone,
-  GraduationCap,
+  Package,
   Truck,
   Wrench,
 } from "lucide-react";
@@ -10,54 +10,54 @@ import {
 const benefits = [
   {
     icon: Euro,
-    title: "Hohe Händlermargen",
+    title: "Bis zu 4x höhere Margen",
     description:
-      "Attraktive Einkaufspreise mit bis zu 40% Marge. Zusätzliche Umsätze durch Service, Ersatzteile und Zubehör.",
+      "25-40% Händlermarge statt 5-10% bei Kassenmodellen. Zusätzliche Umsätze durch Service, Ersatzteile und Zubehör ohne Krankenkassen-Abrechnung.",
   },
   {
     icon: MapPin,
     title: "Exklusive Gebietsrechte",
     description:
-      "Sichern Sie sich den alleinigen Vertrieb in Ihrer Region. Kein Wettbewerb durch andere Händler in Ihrem Gebiet.",
+      "Sichern Sie sich den alleinigen Vertrieb in Ihrer Region. Kein Wettbewerb durch andere Sanitätshäuser in Ihrem Gebiet.",
   },
   {
     icon: Megaphone,
-    title: "Marketing-Support",
+    title: "Komplettes Marketing-Paket",
     description:
-      "Professionelle Verkaufsunterlagen, Flyer, Banner und Online-Marketing-Material kostenlos für Sie.",
+      "Professionelle Verkaufsunterlagen, Schaufenster-Displays, Social-Media-Vorlagen und POS-Material kostenlos für Ihr Sanitätshaus.",
   },
   {
-    icon: GraduationCap,
-    title: "Schulungen & Demos",
+    icon: Package,
+    title: "500m² Ersatzteillager",
     description:
-      "Kostenlose Produktschulungen für Ihr Team (Online & vor Ort). Demo-Fahrzeuge zum Testen verfügbar.",
+      "Alle Ersatzteile lagernd in unserem Zentrallager in Halsenbach. 500m² Ersatzteillager garantiert schnelle Verfügbarkeit für Wartung und Reparaturen.",
   },
   {
     icon: Truck,
-    title: "Schnelle Lieferzeiten",
+    title: "Schnelle Lieferung & Lagerware",
     description:
-      "Lagerware ab Zentrallager Deutschland. Lieferung innerhalb von 3-5 Werktagen direkt zu Ihnen.",
+      "Lagerware ab Zentrallager Deutschland. Lieferung innerhalb von 5-7 Werktagen direkt zu Ihnen oder Ihrem Kunden.",
   },
   {
     icon: Wrench,
-    title: "After-Sales Service",
+    title: "Professioneller Service-Support",
     description:
-      "Technischer Support per Telefon/E-Mail. Ersatzteile schnell verfügbar. Garantieabwicklung unkompliziert.",
+      "Technischer Support per Telefon/E-Mail. Ersatzteile schnell verfügbar. Kulante Garantieabwicklung direkt über uns.",
   },
 ];
 
 export function BenefitsSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-brand-black to-brand-gray-800 text-white">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
               Ihre Vorteile als{" "}
               <span className="text-brand-orange">Vertriebspartner</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Werden Sie Teil eines erfolgreichen Netzwerks und profitieren Sie von
               erstklassigen Konditionen
             </p>
@@ -68,15 +68,15 @@ export function BenefitsSection() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-all border border-white/10"
+                className="bg-white rounded-xl p-6 hover:shadow-lg transition-all border border-gray-200"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-brand-orange/10 rounded-lg shrink-0">
                     <benefit.icon className="h-6 w-6 text-brand-orange" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800">{benefit.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">
                       {benefit.description}
                     </p>
                   </div>
@@ -88,20 +88,20 @@ export function BenefitsSection() {
           {/* Bottom stats */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-orange mb-2">40%</div>
-              <div className="text-gray-300">Händlermarge</div>
+              <div className="text-4xl font-bold text-brand-orange mb-2">bis 40%</div>
+              <div className="text-gray-600">Händlermarge</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-orange mb-2">200+</div>
-              <div className="text-gray-300">Zufriedene Partner</div>
+              <div className="text-4xl font-bold text-brand-orange mb-2">50+</div>
+              <div className="text-gray-600">Sanitätshäuser deutschlandweit</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-orange mb-2">24/7</div>
-              <div className="text-gray-300">Support</div>
+              <div className="text-4xl font-bold text-brand-orange mb-2">0€</div>
+              <div className="text-gray-600">Einstiegskosten</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-orange mb-2">48h</div>
-              <div className="text-gray-300">Lieferzeit</div>
+              <div className="text-4xl font-bold text-brand-orange mb-2">5-7</div>
+              <div className="text-gray-600">Tage Lieferzeit</div>
             </div>
           </div>
         </div>
