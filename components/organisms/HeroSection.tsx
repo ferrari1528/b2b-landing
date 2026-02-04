@@ -48,19 +48,19 @@ export function HeroSection() {
               </h1>
 
               {/* Value Cards - Professional B2B Design */}
-              <div className="mt-8 max-w-5xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-6">
+              <div className="mt-8 max-w-5xl mx-auto px-4">
+                <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                   {/* Card 1: Customer Value */}
-                  <div className="bg-white border border-gray-200 rounded-xl p-7 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-shadow">
-                    <div className="flex items-start gap-4">
-                      <div className="shrink-0 w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 sm:p-7 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-shadow">
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                         </svg>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">Attraktiver Einstiegspreis</h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">Attraktiver Einstiegspreis</h3>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                           Ab <span className="font-bold text-brand-orange">1.599 € UVP</span> für Ihre Kunden. Führerscheinfreie 25 km/h Mobilität, die sich fast von selbst verkauft.
                         </p>
                       </div>
@@ -68,16 +68,16 @@ export function HeroSection() {
                   </div>
 
                   {/* Card 2: Partner Value */}
-                  <div className="bg-white border border-gray-200 rounded-xl p-7 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-shadow">
-                    <div className="flex items-start gap-4">
-                      <div className="shrink-0 w-12 h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 sm:p-7 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-shadow">
+                    <div className="flex items-start gap-3 sm:gap-4">
+                      <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-gray-900 mb-2">Hohe Partnermargen</h3>
-                        <p className="text-gray-600 leading-relaxed">
+                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">Hohe Partnermargen</h3>
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                           Profitables Selbstzahler-Geschäft ohne Krankenkassen-Bürokratie. Maximieren Sie Ihren Deckungsbeitrag pro Quadratmeter.
                         </p>
                       </div>
@@ -99,7 +99,7 @@ export function HeroSection() {
 
             {/* Middle: Large Product Image */}
             <div className="relative w-full">
-              <div className="relative w-full aspect-[16/10] lg:aspect-[16/9]">
+              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9]">
                 <Image
                   src="/images/product-hero-new.jpg"
                   alt="Elektroroller Futura Showroom - Seniorenmobile und Kabinenroller"
@@ -135,23 +135,24 @@ export function HeroSection() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="pt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full max-w-2xl mx-auto px-4">
                 <Button
                   size="lg"
                   onClick={scrollToForm}
-                  className="bg-brand-orange hover:bg-brand-orange/90 text-white text-lg px-8 py-6 rounded-lg shadow-lg shadow-brand-orange/20"
+                  className="bg-brand-orange hover:bg-brand-orange/90 text-white text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-lg shadow-lg shadow-brand-orange/20 w-full sm:w-auto"
                 >
-                  Jetzt Händler-Preisliste anfordern
-                  <ArrowDown className="ml-2 h-5 w-5" />
+                  <span className="hidden sm:inline">Jetzt Händler-Preisliste anfordern</span>
+                  <span className="sm:hidden">Händler-Preisliste anfordern</span>
+                  <ArrowDown className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
                 </Button>
                 <Button
                   size="lg"
                   asChild
                   variant="outline"
-                  className="border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white text-lg px-8 py-6 rounded-lg"
+                  className="border-2 border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-lg w-full sm:w-auto"
                 >
                   <Link href="https://calendly.com/elektroroller-futura/" target="_blank" rel="noopener noreferrer">
-                    <Calendar className="mr-2 h-5 w-5" />
+                    <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                     Beratungsgespräch buchen
                   </Link>
                 </Button>

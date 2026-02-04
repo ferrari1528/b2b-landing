@@ -1,7 +1,7 @@
 "use client";
 
 export function ChatWidget() {
-  const whatsappNumber = "+491796636918"; // Ihre WhatsApp Business Nummer
+  const whatsappNumber = "+4915224641889"; // WhatsApp Bot Nummer
   const defaultMessage = "Hallo! Ich interessiere mich für die B2B-Partnerschaft mit Elektroroller Futura und hätte gerne mehr Informationen.";
 
   const openWhatsApp = () => {
