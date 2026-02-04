@@ -12,20 +12,20 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-white pt-20">
+    <section className="relative min-h-screen flex items-center bg-white pt-16 sm:pt-20">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-16 lg:py-20">
+      <div className="relative z-10 container mx-auto px-3 sm:px-4 py-8 sm:py-16 lg:py-20">
         <div className="max-w-6xl mx-auto">
           {/* Centered Layout: Headline -> Image -> Text */}
-          <div className="space-y-8 lg:space-y-12">
+          <div className="space-y-6 sm:space-y-8 lg:space-y-12">
 
             {/* Top: Badge & Headline */}
-            <div className="text-center space-y-6">
+            <div className="text-center space-y-4 sm:space-y-6">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-orange/20 border border-brand-orange">
                 <span className="relative flex h-2 w-2">
@@ -38,7 +38,7 @@ export function HeroSection() {
               </div>
 
               {/* Main Headline */}
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-4xl mx-auto">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-4xl mx-auto px-2">
                 <span className="text-brand-orange">
                   Werden Sie Partner von Futura:
                 </span>{" "}

@@ -110,13 +110,13 @@ export function RegistrationForm() {
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-black mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-brand-black mb-3 sm:mb-4 px-2">
               Jetzt{" "}
               <span className="text-brand-orange">Händler-Preisliste & Infomaterial</span>{" "}
               anfordern
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-base sm:text-lg text-gray-600 px-4">
               Kostenlos und unverbindlich – Erhalten Sie sofort Zugang zu unseren
               exklusiven B2B-Konditionen und Produktinformationen
             </p>
@@ -142,8 +142,8 @@ export function RegistrationForm() {
           </div>
 
           {/* Form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-8 md:p-10">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
               {/* Sanitätshaus */}
               <div>
                 <Label
@@ -290,7 +290,7 @@ export function RegistrationForm() {
                 type="submit"
                 disabled={isSubmitting}
                 onClick={() => console.log("🔘 Button clicked!")}
-                className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white py-6 text-lg font-semibold"
+                className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white py-4 sm:py-6 text-sm sm:text-lg font-semibold"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">
@@ -298,7 +298,10 @@ export function RegistrationForm() {
                     Wird gesendet...
                   </span>
                 ) : (
-                  "Jetzt Händler-Preisliste & Infomaterial anfordern"
+                  <>
+                    <span className="hidden sm:inline">Jetzt Händler-Preisliste & Infomaterial anfordern</span>
+                    <span className="sm:hidden">Preisliste & Infomaterial anfordern</span>
+                  </>
                 )}
               </Button>
 
