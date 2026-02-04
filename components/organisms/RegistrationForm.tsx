@@ -300,7 +300,7 @@ export function RegistrationForm() {
                 ) : (
                   <>
                     <span className="hidden sm:inline">Jetzt Händler-Preisliste & Infomaterial anfordern</span>
-                    <span className="sm:hidden">Preisliste & Infomaterial anfordern</span>
+                    <span className="sm:hidden">Preisliste jetzt anfordern</span>
                   </>
                 )}
               </Button>

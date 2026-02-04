@@ -12,14 +12,14 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-white pt-16 sm:pt-20">
+    <section className="relative bg-white pt-14 sm:pt-20 pb-8 sm:pb-16">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-3 sm:px-4 py-8 sm:py-16 lg:py-20">
+      <div className="relative z-10 container mx-auto px-3 sm:px-4 py-6 sm:py-16 lg:py-20">
         <div className="max-w-6xl mx-auto">
           {/* Centered Layout: Headline -> Image -> Text */}
           <div className="space-y-6 sm:space-y-8 lg:space-y-12">
@@ -98,15 +98,15 @@ export function HeroSection() {
             </div>
 
             {/* Middle: Large Product Image */}
-            <div className="relative w-full">
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9]">
+            <div className="relative w-full max-w-5xl mx-auto">
+              <div className="relative w-full aspect-[3/2] sm:aspect-[16/10] lg:aspect-[16/9] bg-gray-50 rounded-xl overflow-hidden">
                 <Image
                   src="/images/product-hero-new.jpg"
                   alt="Elektroroller Futura Showroom - Seniorenmobile und Kabinenroller"
                   fill
-                  className="object-contain rounded-xl shadow-2xl"
+                  className="object-contain shadow-2xl"
                   priority
-                  sizes="100vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
                 />
               </div>
             </div>
