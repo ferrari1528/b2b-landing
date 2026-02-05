@@ -17,7 +17,18 @@ class GoogleSheetsService {
     }
 
     try {
-      // Fix private key formatting - handle both \\n and literal \n
+      // Try to use GOOGLE_SERVICE_ACCOUNT_JSON first (preferred)
+      if (process.env.GOOGLE_SERVICE_ACCOUNT_JSON) {
+        const credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
+        const auth = new google.auth.GoogleAuth({
+          credentials,
+          scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+        });
+        this.sheets = google.sheets({ version: "v4", auth });
+        return this.sheets;
+      }
+
+      // Fallback to individual environment variables
       let privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY || "";
       privateKey = privateKey.replace(/\\n/g, "\n");
 
