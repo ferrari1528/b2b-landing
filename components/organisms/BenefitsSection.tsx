@@ -1,7 +1,7 @@
 import {
   Euro,
   MapPin,
-  Megaphone,
+  TrendingUp,
   Package,
   Truck,
   Wrench,
@@ -21,10 +21,10 @@ const benefits = [
       "Sichern Sie sich den alleinigen Vertrieb in Ihrer Region. Kein Wettbewerb durch andere Sanitätshäuser in Ihrem Gebiet.",
   },
   {
-    icon: Megaphone,
-    title: "Komplettes Marketing-Paket",
+    icon: TrendingUp,
+    title: "Massive Social Media Reichweite",
     description:
-      "Professionelle Verkaufsunterlagen, Schaufenster-Displays, Social-Media-Vorlagen und POS-Material kostenlos für Ihr Sanitätshaus.",
+      "68.000+ Follower, täglich neue Videos, Top-Videos mit 1+ Mio. Klicks. Profitieren Sie von unserer Marketing-Power und bekommen Sie automatisch neue Kunden – ohne eigenes Werbebudget!",
   },
   {
     icon: Package,
@@ -92,16 +92,16 @@ export function BenefitsSection() {
               <div className="text-gray-600">Händlermarge</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-orange mb-2">50+</div>
-              <div className="text-gray-600">Sanitätshäuser deutschlandweit</div>
+              <div className="text-4xl font-bold text-brand-orange mb-2">68.000+</div>
+              <div className="text-gray-600">Social Media Follower</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-orange mb-2">0€</div>
-              <div className="text-gray-600">Einstiegskosten</div>
+              <div className="text-4xl font-bold text-brand-orange mb-2">1 Mio.+</div>
+              <div className="text-gray-600">Video-Klicks (Top-Videos)</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-brand-orange mb-2">5-7</div>
-              <div className="text-gray-600">Tage Lieferzeit</div>
+              <div className="text-4xl font-bold text-brand-orange mb-2">täglich</div>
+              <div className="text-gray-600">Neue Marketing-Videos</div>
             </div>
           </div>
         </div>

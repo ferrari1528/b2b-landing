@@ -12,20 +12,20 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative bg-white pt-14 sm:pt-20 pb-8 sm:pb-16">
+    <section className="relative bg-white pt-12 sm:pt-20 pb-8 sm:pb-16">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-3 sm:px-4 py-6 sm:py-16 lg:py-20">
+      <div className="relative z-10 container mx-auto px-3 sm:px-4 py-3 sm:py-16 lg:py-20">
         <div className="max-w-6xl mx-auto">
           {/* Centered Layout: Headline -> Image -> Text */}
-          <div className="space-y-6 sm:space-y-8 lg:space-y-12">
+          <div className="space-y-2 sm:space-y-8 lg:space-y-12">
 
             {/* Top: Badge & Headline */}
-            <div className="text-center space-y-4 sm:space-y-6">
+            <div className="text-center space-y-2 sm:space-y-6">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-orange/20 border border-brand-orange">
                 <span className="relative flex h-2 w-2">
@@ -48,19 +48,19 @@ export function HeroSection() {
               </h1>
 
               {/* Value Cards - Professional B2B Design */}
-              <div className="mt-8 max-w-5xl mx-auto px-4">
-                <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
+              <div className="mt-4 sm:mt-8 max-w-5xl mx-auto px-4">
+                <div className="grid md:grid-cols-2 gap-3 sm:gap-6">
                   {/* Card 1: Customer Value */}
-                  <div className="bg-white border border-gray-200 rounded-xl p-5 sm:p-7 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-shadow">
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-7 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-shadow">
+                    <div className="flex items-start gap-2 sm:gap-4">
+                      <div className="shrink-0 w-9 h-9 sm:w-12 sm:h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-6 sm:w-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                         </svg>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">Attraktiver Einstiegspreis</h3>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                        <h3 className="text-sm sm:text-xl font-bold text-gray-900 mb-0.5 sm:mb-2">Attraktiver Einstiegspreis</h3>
+                        <p className="text-xs sm:text-base text-gray-600 leading-snug sm:leading-relaxed">
                           Ab <span className="font-bold text-brand-orange">1.599 € UVP</span> für Ihre Kunden. Führerscheinfreie 25 km/h Mobilität, die sich fast von selbst verkauft.
                         </p>
                       </div>
@@ -68,16 +68,16 @@ export function HeroSection() {
                   </div>
 
                   {/* Card 2: Partner Value */}
-                  <div className="bg-white border border-gray-200 rounded-xl p-5 sm:p-7 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-shadow">
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-7 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-shadow">
+                    <div className="flex items-start gap-2 sm:gap-4">
+                      <div className="shrink-0 w-9 h-9 sm:w-12 sm:h-12 bg-brand-orange/10 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-6 sm:w-6 text-brand-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">Hohe Partnermargen</h3>
-                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                        <h3 className="text-sm sm:text-xl font-bold text-gray-900 mb-0.5 sm:mb-2">Hohe Partnermargen</h3>
+                        <p className="text-xs sm:text-base text-gray-600 leading-snug sm:leading-relaxed">
                           Profitables Selbstzahler-Geschäft ohne Krankenkassen-Bürokratie. Maximieren Sie Ihren Deckungsbeitrag pro Quadratmeter.
                         </p>
                       </div>
@@ -86,9 +86,9 @@ export function HeroSection() {
                 </div>
 
                 {/* Social Proof - Integrated Below Cards */}
-                <div className="mt-6 text-center">
-                  <p className="text-sm italic text-gray-600 flex items-center justify-center gap-2">
-                    <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <div className="mt-3 sm:mt-6 text-center">
+                  <p className="text-xs sm:text-sm italic text-gray-600 flex items-center justify-center gap-2">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <span>Bereits über <strong className="text-gray-900">50 Partner-Sanitätshäuser</strong> in Deutschland vertrauen auf Futura</span>

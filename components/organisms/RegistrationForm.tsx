@@ -106,17 +106,17 @@ export function RegistrationForm() {
   }
 
   return (
-    <section id="registration-form" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="registration-form" className="py-16 md:py-20 bg-white">
+      <div className="container mx-auto px-5 md:px-4">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-brand-black mb-3 sm:mb-4 px-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-brand-black mb-3 sm:mb-4 px-2 leading-tight">
               Jetzt{" "}
-              <span className="text-brand-orange">Händler-Preisliste & Infomaterial</span>{" "}
-              anfordern
+              <span className="text-brand-orange">Händler-Paket anfordern:</span>{" "}
+              Preisliste, Tech-Daten & Muster-Kalkulation
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 px-4">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 px-4">
               Kostenlos und unverbindlich – Erhalten Sie sofort Zugang zu unseren
               exklusiven B2B-Konditionen und Produktinformationen
             </p>
@@ -262,7 +262,7 @@ export function RegistrationForm() {
                   id="dsgvoConsent"
                   type="checkbox"
                   {...register("dsgvoConsent")}
-                  className="mt-1 h-4 w-4 rounded border-gray-300 text-brand-orange focus:ring-brand-orange"
+                  className="mt-1 h-5 w-5 md:h-4 md:w-4 rounded border-gray-300 text-brand-orange focus:ring-brand-orange touch-manipulation"
                 />
                 <Label
                   htmlFor="dsgvoConsent"
@@ -288,9 +288,10 @@ export function RegistrationForm() {
               {/* Submit Button */}
               <Button
                 type="submit"
+                size="touch"
                 disabled={isSubmitting}
                 onClick={() => console.log("🔘 Button clicked!")}
-                className="w-full bg-brand-orange hover:bg-brand-orange/90 text-white py-4 sm:py-6 text-sm sm:text-lg font-semibold"
+                className="bg-brand-orange hover:bg-brand-orange/90 text-white shadow-lg hover:shadow-xl"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">

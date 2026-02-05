@@ -1,11 +1,14 @@
 import { Header } from "@/components/organisms/Header";
 import { HeroSection } from "@/components/organisms/HeroSection";
+import { SocialProofBar } from "@/components/organisms/SocialProofBar";
 import { ProblemSection } from "@/components/organisms/ProblemSection";
 import { SolutionSection } from "@/components/organisms/SolutionSection";
 import { ComparisonTable } from "@/components/organisms/ComparisonTable";
 import { BenefitsSection } from "@/components/organisms/BenefitsSection";
+import { ServiceSection } from "@/components/organisms/ServiceSection";
+import { SocialMediaSection } from "@/components/organisms/SocialMediaSection";
 import { RegistrationForm } from "@/components/organisms/RegistrationForm";
-import { ChatWidget } from "@/components/organisms/ChatWidget";
+import { WhatsAppButton } from "@/components/organisms/WhatsAppButton";
 import Link from "next/link";
 
 export default function Home() {
@@ -14,10 +17,13 @@ export default function Home() {
       <Header />
       <main className="min-h-screen">
         <HeroSection />
+        <SocialProofBar />
         <ProblemSection />
         <SolutionSection />
         <ComparisonTable />
         <BenefitsSection />
+        <ServiceSection />
+        <SocialMediaSection />
         <RegistrationForm />
 
         {/* Footer */}
@@ -68,7 +74,7 @@ export default function Home() {
                   <p className="text-sm">Industriestraße 1<br />56283 Halsenbach, Deutschland</p>
                   <p className="text-sm">📞 Telefon: +49 6747 950060</p>
                   <p className="text-sm">📧 E-Mail: haendler@e-scooter-futura.de</p>
-                  <p className="text-sm">📱 WhatsApp: +49 1796636918</p>
+                  <p className="text-sm">📱 WhatsApp: +49 1522 4641889</p>
                 </div>
               </div>
             </div>
@@ -84,8 +90,8 @@ export default function Home() {
         </footer>
       </main>
 
-      {/* Chat Widget */}
-      <ChatWidget />
+      {/* WhatsApp Button */}
+      <WhatsAppButton />
     </>
   );
 }
